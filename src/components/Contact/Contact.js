@@ -3,12 +3,21 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import Particle from "../Particle";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaLinkedinIn,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+import { AiFillGithub, AiFillInstagram, AiOutlineMail } from "react-icons/ai";
 
 function Contact() {
   const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState({ text: "", isError: false });
+  const [submitMessage, setSubmitMessage] = useState({
+    text: "",
+    isError: false,
+  });
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -23,11 +32,17 @@ function Contact() {
       )
       .then(
         () => {
-          setSubmitMessage({ text: "Message sent successfully!", isError: false });
+          setSubmitMessage({
+            text: "Message sent successfully!",
+            isError: false,
+          });
           form.current.reset();
         },
         () => {
-          setSubmitMessage({ text: "Failed to send message. Try again!", isError: true });
+          setSubmitMessage({
+            text: "Failed to send message. Try again!",
+            isError: true,
+          });
         }
       )
       .finally(() => {
@@ -38,20 +53,22 @@ function Contact() {
 
   return (
     <section>
-      <Container fluid className="home-section" id="contact" style={{ position: "relative" }}>
+      <Container
+        fluid
+        className="contact-section"
+        id="contact"
+        style={{ position: "relative" }}
+      >
         <Particle />
 
-        {/* The key fix: very high z-index */}
-        <Container
-          className="home-content"
-          style={{
-            position: "relative",
-            zIndex: 9999, // ensure this is above Particle
-          }}
-        >
+        <Container className="home-content" style={{ position: "relative" }}>
           <Row className="align-items-center">
             {/* LEFT SIDE */}
-            <Col md={6} className="home-header">
+            <Col
+              md={6}
+              className="contact-header"
+              style={{ position: "relative", zIndex: 10 }}
+            >
               <motion.h1
                 className="heading"
                 initial={{ opacity: 0, y: 20 }}
@@ -62,48 +79,94 @@ function Contact() {
                 Get in <strong className="main-name">Touch</strong>
               </motion.h1>
 
-              <p style={{ fontSize: "1.1rem", color: "#c9c9c9", maxWidth: "90%" }}>
-                Have an opportunity, an idea to discuss, or just want to say hello?  
-                Drop me a message and I’ll get back to you at the earliest.
+              <p
+                style={{
+                  fontSize: "1.1rem",
+                  color: "#c9c9c9",
+                  maxWidth: "90%",
+                }}
+              >
+                Have an opportunity, an idea to discuss, or just want to say
+                hello? Drop me a message and I’ll get back to you at the
+                earliest.
               </p>
 
-              <div style={{ marginTop: "30px", textAlign: "left", lineHeight: "2rem" }}>
+              <div
+                style={{
+                  marginTop: "30px",
+                  textAlign: "left",
+                  lineHeight: "2rem",
+                }}
+              >
                 <p style={{ fontSize: "1.1rem" }}>
-                  <FaEnvelope style={{ marginRight: "10px", color: "#c770f0" }} />
+                  <FaEnvelope
+                    style={{ marginRight: "10px", color: "#c770f0" }}
+                  />
                   <strong>Email:</strong> ishika14122004@gmail.com
                 </p>
                 <p style={{ fontSize: "1.1rem" }}>
-                  <FaPhoneAlt style={{ marginRight: "10px", color: "#c770f0" }} />
+                  <FaPhoneAlt
+                    style={{ marginRight: "10px", color: "#c770f0" }}
+                  />
                   <strong>Phone:</strong> +91-7897329745
                 </p>
                 <p style={{ fontSize: "1.1rem" }}>
-                  <FaMapMarkerAlt style={{ marginRight: "10px", color: "#c770f0" }} />
+                  <FaMapMarkerAlt
+                    style={{ marginRight: "10px", color: "#c770f0" }}
+                  />
                   <strong>Location:</strong> Varanasi, India
                 </p>
               </div>
 
-              <div style={{ marginTop: "25px", display: "flex", gap: "15px" }}>
-                <a
-                  href="https://github.com/ishika14122004"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ fontSize: "1.8rem", color: "#fff" }}
-                >
-                  <FaGithub />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/ishika-barnwal"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ fontSize: "1.8rem", color: "#fff" }}
-                >
-                  <FaLinkedin />
-                </a>
+              <div style={{ marginTop: "25px" }}>
+                <ul className="home-about-social-links">
+                  <li className="social-icons">
+                    <a
+                      href="https://github.com/ishika14122004"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="icon-colour home-social-icons"
+                    >
+                      <AiFillGithub />
+                    </a>
+                  </li>
+
+                  <li className="social-icons">
+                    <a
+                      href="mailto:ishikabarnwal2004@gmail.com"
+                      className="icon-colour home-social-icons"
+                    >
+                      <AiOutlineMail />
+                    </a>
+                  </li>
+
+                  <li className="social-icons">
+                    <a
+                      href="https://www.linkedin.com/in/ishika-barnwal/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="icon-colour home-social-icons"
+                    >
+                      <FaLinkedinIn />
+                    </a>
+                  </li>
+
+                  <li className="social-icons">
+                    <a
+                      href="https://www.instagram.com/_ishikaushik__/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="icon-colour home-social-icons"
+                    >
+                      <AiFillInstagram />
+                    </a>
+                  </li>
+                </ul>
               </div>
             </Col>
 
             {/* RIGHT SIDE - FORM */}
-            <Col md={6}>
+            <Col md={6} style={{ position: "relative", zIndex: 20 }}>
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -120,24 +183,36 @@ function Contact() {
                   }}
                 >
                   <Form.Group className="mb-3">
-                    <Form.Label style={{ color: "white" }}>Your Name</Form.Label>
+                    <Form.Label style={{ color: "white" }}>
+                      Your Name
+                    </Form.Label>
                     <Form.Control
                       type="text"
                       name="name"
                       placeholder="Ginny"
                       required
-                      style={{ background: "#ffffff", color: "white", border: "none" }}
+                      style={{
+                        background: "#ffffff",
+                        color: "#000",
+                        border: "none",
+                      }}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label style={{ color: "white" }}>Your Email</Form.Label>
+                    <Form.Label style={{ color: "white" }}>
+                      Your Email
+                    </Form.Label>
                     <Form.Control
                       type="email"
                       name="email"
                       placeholder="ginny@gmail.com"
                       required
-                      style={{ background: "#ffffff", color: "white", border: "none" }}
+                      style={{
+                        background: "#ffffff",
+                        color: "#000",
+                        border: "none",
+                      }}
                     />
                   </Form.Group>
 
@@ -148,7 +223,11 @@ function Contact() {
                       name="title"
                       placeholder="Project Inquiry"
                       required
-                      style={{ background: "#ffffff", color: "white", border: "none" }}
+                      style={{
+                        background: "#ffffff",
+                        color: "#000",
+                        border: "none",
+                      }}
                     />
                   </Form.Group>
 
@@ -160,7 +239,11 @@ function Contact() {
                       name="message"
                       placeholder="Your message here..."
                       required
-                      style={{ background: "#ffffff", color: "white", border: "none" }}
+                      style={{
+                        background: "#ffffff",
+                        color: "#000",
+                        border: "none",
+                      }}
                     />
                   </Form.Group>
 
