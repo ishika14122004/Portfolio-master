@@ -176,12 +176,22 @@ function Contact() {
                   ref={form}
                   onSubmit={sendEmail}
                   style={{
-                    background: "#110418ff",
+                    background: "rgba(17, 4, 24, 0.95)",
                     padding: "25px",
-                    borderRadius: "12px",
+                    borderRadius: "16px",
                     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.4)",
+                    transition: "all 0.4s ease",
                   }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.boxShadow =
+                      "0 8px 30px rgba(199, 112, 240, 0.4)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.boxShadow =
+                      "0 4px 15px rgba(0, 0, 0, 0.4)")
+                  }
                 >
+                
                   <Form.Group className="mb-3">
                     <Form.Label style={{ color: "white" }}>
                       Your Name
@@ -192,10 +202,19 @@ function Contact() {
                       placeholder="Ginny"
                       required
                       style={{
-                        background: "#ffffff",
+                        background: "#fff",
                         color: "#000",
-                        border: "none",
+                        border: "2px solid transparent",
+                        borderRadius: "8px",
+                        padding: "10px 12px",
+                        transition: "all 0.3s ease",
                       }}
+                      onFocus={(e) =>
+                        (e.target.style.border = "2px solid #c770f0")
+                      }
+                      onBlur={(e) =>
+                        (e.target.style.border = "2px solid transparent")
+                      }
                     />
                   </Form.Group>
 
@@ -209,10 +228,19 @@ function Contact() {
                       placeholder="ginny@gmail.com"
                       required
                       style={{
-                        background: "#ffffff",
+                        background: "#fff",
                         color: "#000",
-                        border: "none",
+                        border: "2px solid transparent",
+                        borderRadius: "8px",
+                        padding: "10px 12px",
+                        transition: "all 0.3s ease",
                       }}
+                      onFocus={(e) =>
+                        (e.target.style.border = "2px solid #c770f0")
+                      }
+                      onBlur={(e) =>
+                        (e.target.style.border = "2px solid transparent")
+                      }
                     />
                   </Form.Group>
 
@@ -224,10 +252,19 @@ function Contact() {
                       placeholder="Project Inquiry"
                       required
                       style={{
-                        background: "#ffffff",
+                        background: "#fff",
                         color: "#000",
-                        border: "none",
+                        border: "2px solid transparent",
+                        borderRadius: "8px",
+                        padding: "10px 12px",
+                        transition: "all 0.3s ease",
                       }}
+                      onFocus={(e) =>
+                        (e.target.style.border = "2px solid #c770f0")
+                      }
+                      onBlur={(e) =>
+                        (e.target.style.border = "2px solid transparent")
+                      }
                     />
                   </Form.Group>
 
@@ -240,10 +277,19 @@ function Contact() {
                       placeholder="Your message here..."
                       required
                       style={{
-                        background: "#ffffff",
+                        background: "#fff",
                         color: "#000",
-                        border: "none",
+                        border: "2px solid transparent",
+                        borderRadius: "8px",
+                        padding: "10px 12px",
+                        transition: "all 0.3s ease",
                       }}
+                      onFocus={(e) =>
+                        (e.target.style.border = "2px solid #c770f0")
+                      }
+                      onBlur={(e) =>
+                        (e.target.style.border = "2px solid transparent")
+                      }
                     />
                   </Form.Group>
 
@@ -262,23 +308,32 @@ function Contact() {
                   )}
 
                   <motion.button
-                    type="submit"
-                    style={{
-                      width: "100%",
-                      padding: "12px",
-                      border: "none",
-                      borderRadius: "6px",
-                      backgroundColor: "#c770f0",
-                      color: "white",
-                      fontSize: "1rem",
-                      cursor: "pointer",
-                      fontWeight: "500",
-                    }}
-                    whileHover={{ y: -2 }}
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </motion.button>
+  type="submit"
+  style={{
+    width: "100%",
+    padding: "12px",
+    border: "none",
+    borderRadius: "8px",
+    background: "linear-gradient(135deg, #c770f0, #6a11cb)",
+    color: "white",
+    fontSize: "1rem",
+    cursor: "pointer",
+    fontWeight: "600",
+    letterSpacing: "0.5px",
+    transition: "all 0.3s ease",
+    boxShadow: "0 4px 12px rgba(199, 112, 240, 0.4)",
+  }}
+  whileHover={{
+    y: -3,
+    scale: 1.02,
+    boxShadow: "0 8px 20px rgba(199, 112, 240, 0.6)",
+  }}
+  whileTap={{ scale: 0.98 }}
+  disabled={isSubmitting}
+>
+  {isSubmitting ? "Sending..." : "Send Message"}
+</motion.button>
+
                 </Form>
               </motion.div>
             </Col>
