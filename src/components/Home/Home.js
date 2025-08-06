@@ -17,7 +17,7 @@ const fadeUp = {
 // FlipWords style
 const flipTextStyle = {
   color: "#a855f7",         // Purple
-  fontSize: "2.4rem",       // Bigger
+  fontSize: "2.95rem",       // Bigger
   fontWeight: "600",
   marginTop: "0 rem",      // Brings closer to your name
 };
