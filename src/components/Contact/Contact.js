@@ -3,6 +3,7 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import Particle from "../Particle";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
+import SpaceButton from "./SpaceButton";
 import {
   FaLinkedinIn,
   FaEnvelope,
@@ -307,33 +308,9 @@ function Contact() {
                     </motion.p>
                   )}
 
-                  <motion.button
-  type="submit"
-  style={{
-    width: "100%",
-    padding: "12px",
-    border: "none",
-    borderRadius: "8px",
-    background: "linear-gradient(135deg, #c770f0, #6a11cb)",
-    color: "white",
-    fontSize: "1rem",
-    cursor: "pointer",
-    fontWeight: "600",
-    letterSpacing: "0.5px",
-    transition: "all 0.3s ease",
-    boxShadow: "0 4px 12px rgba(199, 112, 240, 0.4)",
-  }}
-  whileHover={{
-    y: -3,
-    scale: 1.02,
-    boxShadow: "0 8px 20px rgba(199, 112, 240, 0.6)",
-  }}
-  whileTap={{ scale: 0.98 }}
-  disabled={isSubmitting}
->
-  {isSubmitting ? "Sending..." : "Send Message"}
-</motion.button>
-
+                  <SpaceButton type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Let's Connect!"}
+                  </SpaceButton>
                 </Form>
               </motion.div>
             </Col>

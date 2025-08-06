@@ -1,10 +1,26 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Lottie from "lottie-react";
-import homeAnimation from "../../Assets/home-main3.json"; // JSON animation
+import homeAnimation from "../../Assets/home-main3.json";
 import Particle from "../Particle";
 import Home2 from "./Home2";
-import Type from "./Type";
+import { FlipWords } from "./FlipWords";
+import { motion } from "framer-motion";
+
+// Animation setup
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8 },
+};
+
+// FlipWords style
+const flipTextStyle = {
+  color: "#a855f7",         // Purple
+  fontSize: "2.4rem",       // Bigger
+  fontWeight: "600",
+  marginTop: "0 rem",      // Brings closer to your name
+};
 
 function Home() {
   return (
@@ -23,11 +39,41 @@ function Home() {
 
               <h1 className="heading-name">
                 I'm
-                <strong className="main-name"> Ishika Barnwal</strong>
+                <strong className="home-name"> Ishika Barnwal</strong>
               </h1>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
-                <Type />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                  marginTop: "-130px",
+                  marginLeft: "35px",
+                }}
+              >
+                <motion.div
+                  className="home-content"
+                  initial={fadeUp.initial}
+                  animate={fadeUp.animate}
+                  transition={fadeUp.transition}
+                  viewport={{ once: true }}
+                  style={{ width: "100%" }}
+                >
+                  <div className="main-left">
+                    <div style={flipTextStyle}>
+                      <FlipWords
+                        words={[
+                          "Frontend Developer",
+                          "UI/UX Designer",
+                          "Freelancer",
+                          "Open Source Contributor",
+                        ]}
+                        duration={3000}
+                        className="flip-text"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </Col>
 

@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+/* Custom Cursor Global Style */
+body, * {
+  cursor: none;
+}
+
+/* Optional Scaling for Hover Effect */
+.hovered-element:hover ~ .custom-cursor {
+  transform: scale(2);
+}
